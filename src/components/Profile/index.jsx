@@ -5,14 +5,18 @@ import Title from "../Title"
 import ProfileSection from "./ProfileSection"
 import styles from "./styles.module.css"
 
-export default function Profile(props) {
+function handleClick(ev){
+  console.log(ev)
+  alert('Você agora está seguindo!')
+}
 
+export default function Profile(props) {
   return (
     <div className={styles.container}>
       <img id={props.avatar} className={styles.avatar} src="" alt=""/>
       <Title>
         {props.name}
-        <button>+</button>
+        <button onClick={handleClick}>+</button>
       </Title>
       <ProfileSection>{props.bio}</ProfileSection>
       <ProfileSection>{props.phone}</ProfileSection>
