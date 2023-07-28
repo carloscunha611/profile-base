@@ -17,7 +17,12 @@ export default function Profile(props) {
       <ProfileSection>{props.bio}</ProfileSection>
       <ProfileSection>{props.phone}</ProfileSection>
       <ProfileSection>{props.email}</ProfileSection>
-      <ProfileSection>
+      <ProfileSection
+        className={styles.links}
+        id="links-section"
+        data-test="some value"
+        aria-label="social links"
+      >
       <div className={styles.links}>
         <LinkButton href={props.githubUrl}>GitHub</LinkButton>
         <LinkButton href={props.linkedinUrl}>LinkedIn</LinkButton>
