@@ -1,22 +1,25 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
+import { useState } from "react"
 import LinkButton from "../LinkButton"
 import Title from "../Title"
 import ProfileSection from "./ProfileSection"
 import styles from "./styles.module.css"
 
-function handleClick(ev){
-  console.log(ev)
-  alert('Você agora está seguindo!')
-}
 
 export default function Profile(props) {
+  const [followText, setFollowText] = useState('+')
+  function handleClick(){
+    alert('Você agora está seguindo!')
+    setFollowText('-')
+  }
+  
   return (
     <div className={styles.container}>
       <img id={props.avatar} className={styles.avatar} src="" alt=""/>
       <Title>
         {props.name}
-        <button onClick={handleClick}>+</button>
+        <button onClick={handleClick}>{followText}</button>
       </Title>
       <ProfileSection>{props.bio}</ProfileSection>
       <ProfileSection>{props.phone}</ProfileSection>
